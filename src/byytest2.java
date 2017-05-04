@@ -93,7 +93,7 @@ public class byytest2 {
         }
     }
 
-    void chongfu(int lenlist2){
+    void repeat(int lenlist2){
         for(int i = 0;i<lenlist2;i++){
             if(list2.get(lenlist2).equals(list2.get(i))){
                 list2.remove(lenlist2);
@@ -114,22 +114,30 @@ public class byytest2 {
         if (flag == 0) {
             int lenlist2 = list2.size();
             list2.add(String.valueOf(num1[0] + " + " + num2[0]));
-                chongfu(lenlist2);
+                repeat(lenlist2);
             list2.add(String.valueOf(num2[0] + " + " + num1[0]));
-                chongfu(lenlist2);
+                repeat(lenlist2);
             System.out.println(a + ". " + num1[0] + " + " + num2[0] + " = ?");
         }
         else if (flag == 1) {
-            System.out.println(a + ". " + num1[0] + " - " + num2[0] + " = ?");
+            int lenlist2 = list2.size();
             list2.add(String.valueOf(num1[0] + " - " + num2[0]));
+            repeat(lenlist2);
+            System.out.println(a + ". " + num1[0] + " - " + num2[0] + " = ?");
         }
         else if (flag == 2) {
-            System.out.println(a + ". " + num1[0] + " * " + num2[0] + " = ?");
+            int lenlist2 = list2.size();
             list2.add(String.valueOf(num1[0] + " * " + num2[0]));
+            repeat(lenlist2);
+            list2.add(String.valueOf(num2[0] + " * " + num1[0]));
+            repeat(lenlist2);
+            System.out.println(a + ". " + num1[0] + " * " + num2[0] + " = ?");
         }
         else {
-            System.out.println(a + ". " + num1[0] + " / " + num2[0] + " = ?");
+            int lenlist2 = list2.size();
             list2.add(String.valueOf(num1[0] + " / " + num2[0]));
+            repeat(lenlist2);
+            System.out.println(a + ". " + num1[0] + " / " + num2[0] + " = ?");
         }
         Calculate(num1,num2,flag);
     }
@@ -221,7 +229,7 @@ public class byytest2 {
         System.out.println("请输入最简答案:");
         String line = s.nextLine();
 
-        panduan(line);  //2017年3月29日20:09:01新增判断
+        judge(line);  //2017年3月29日20:09:01新增判断
 
         if (line.compareTo(result) == 0) {
             System.out.println("正确！");
@@ -234,7 +242,7 @@ public class byytest2 {
         System.out.println("正确率为" + df.format(ture/all*100) + "%。");
     }
 
-    void panduan(String line){  //2017年3月29日20:09:01新增
+    void judge(String line){  //2017年3月29日20:09:01新增
         while(true){
             int p = 0;
             switch (p){
@@ -349,4 +357,4 @@ public class byytest2 {
 }
 //基本功能实现 待完善 2017年3月25日04:22:05
 //编写的时候遇到的错误 或者想到更好的算法 没有把旧算法del而是备注了所以有点多。。
-//任务三功能实现 待完善 2017年4月7日16:40:12 主要添加了panduan 和 chongfu 函数
+//任务三功能实现 待完善 2017年4月7日16:40:12 主要添加了 judge 和 repeat 函数
